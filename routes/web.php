@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AsetController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +20,9 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/login',[LoginController::class,'login'])->name('login');
+Route::get('/',[LoginController::class,'login'])->name('login');
 Route::post('/postlogin',[LoginController::class,'postlogin'])->name('postlogin');
+Route::get('/home', [AsetController::class, 'tampil'])->name('tampil');
+Route::get('/aset', [AsetController::class, 'aset'])->name('barang');
+Route::post('/aset/store', [AsetController::class, 'store'])->name('store');
+
